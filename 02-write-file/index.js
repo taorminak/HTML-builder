@@ -1,12 +1,13 @@
 const readline = require('readline');
 const fs = require('fs');
+const path = require('path');
 
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
-const writeStream = fs.createWriteStream('./02-write-file/text.txt', {flags: 'a'});
+const writeStream = fs.createWriteStream(path.join(__dirname, 'text.txt'), {flags: 'a'});
 
 console.log('Добрый день! Введите ваш текст:');
 
