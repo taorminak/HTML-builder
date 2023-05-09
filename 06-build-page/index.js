@@ -29,7 +29,7 @@ const distPath = path.join(__dirname, 'project-dist');
         await fs.promises.copyFile(srcFile, distFile);}
     
     } else {
-      await fs.promises.copyFile(srcFilePath, distFilePath, { overwrite: true });
+      await fs.promises.copyFile(srcFilePath, distFilePath);
 
     }}
 
