@@ -10,7 +10,7 @@ const distPath = path.join(__dirname, 'project-dist');
 (async () => {
   await fs.promises.mkdir(distPath, { recursive: true });
   await fs.promises.writeFile(
-    path.join(__dirname, 'project-dist/styles.css'),
+    path.join(__dirname, 'project-dist/style.css'),
     ''
   );
   const assets = await fs.promises.readdir(srcPath);
@@ -40,7 +40,7 @@ const distPath = path.join(__dirname, 'project-dist');
       'utf8'
     );
     await fs.promises.appendFile(
-      '06-build-page/project-dist/styles.css',
+      '06-build-page/project-dist/style.css',
       data
     );
   }
