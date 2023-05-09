@@ -19,15 +19,15 @@ const distPath = path.join(__dirname, 'project-dist');
   for (const asset of assets) {
     const srcFilePath = path.join(srcPath, asset);
     const distFilePath = path.join(distPath, 'assets', asset);
-    const stats = await fs.promises.lstat(srcFilePath);
+    const stats = await fs.promises.stat(srcFilePath);
     if (stats.isDirectory()) {
       await fs.promises.mkdir(distFilePath, { recursive: true });
-      /*const files = await fs.promises.readdir(srcPath);
+      const files = await fs.promises.readdir(srcFilePath);
       for (const file of files) {
-        const srcFile = `${srcFilePath}`;
-        const distFile = `${distFilePath}`;
-        await fs.promises.copyFile(srcFile, distFile);
-      }*/
+        const srcFile = `${srcFilePath}/${file}`;
+        const distFile = `${distFilePath}/${file}`;  
+        await fs.promises.copyFile(srcFile, distFile);}
+    
     } else {
       await fs.promises.copyFile(srcFilePath, distFilePath, { overwrite: true });
 
